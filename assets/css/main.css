@@ -692,6 +692,38 @@ main {
   font-style: italic;
 }
 
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+.chapters__loading {
+  margin: 2.5rem auto 0;
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  border: 4px solid rgba(214, 176, 72, 0.25);
+  border-top-color: rgba(246, 217, 124, 0.9);
+  animation: spin 1s linear infinite;
+  display: none;
+}
+
+.chapters__loading.is-active {
+  display: block;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
 .cta {
   padding: 6rem 1.5rem 7rem;
 }

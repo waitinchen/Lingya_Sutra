@@ -62,7 +62,8 @@ const selectors = {
   navToggle: document.querySelector('[data-action="toggle-nav"]'),
   nav: document.querySelector('.primary-nav'),
   animateSections: Array.from(document.querySelectorAll('[data-animate]')),
-  spotifyEmbed: document.querySelector('[data-role="spotify-embed"]')
+  spotifyEmbed: document.querySelector('[data-role="spotify-embed"]'),
+  chaptersLoading: document.querySelector('[data-role="chapters-loading"]')
 };
 
 async function fetchContent(lang) {
@@ -237,6 +238,7 @@ function renderChapters(chapters) {
 
   if (selectors.chapters.parts) {
     selectors.chapters.parts.innerHTML = "";
+    toggleChaptersLoading(true);
     (chapters.parts ?? []).forEach(part => {
       const partCard = document.createElement("article");
       partCard.className = "part-card";
@@ -278,6 +280,7 @@ function renderChapters(chapters) {
       partCard.append(header, chapterGrid);
       selectors.chapters.parts.appendChild(partCard);
     });
+    toggleChaptersLoading(false);
   }
 }
 
@@ -320,6 +323,7 @@ async function setLanguage(lang) {
   const fallback = "zh";
   const targetLang = LANG_CONFIG[lang] ? lang : fallback;
   try {
+    toggleChaptersLoading(true);
     const data = await fetchContent(targetLang);
     updateMeta(data.meta, targetLang);
     renderHeader(data.header);
@@ -341,6 +345,8 @@ async function setLanguage(lang) {
     if (targetLang !== fallback) {
       await setLanguage(fallback);
     }
+  } finally {
+    toggleChaptersLoading(false);
   }
 }
 
@@ -480,6 +486,12 @@ function updateLocalizedEmbeds(lang) {
   const shouldShow = visibleFor.includes("all") || visibleFor.includes(lang);
   selectors.spotifyEmbed.classList.toggle("is-active", shouldShow);
   selectors.spotifyEmbed.setAttribute("aria-hidden", shouldShow ? "false" : "true");
+}
+
+function toggleChaptersLoading(show) {
+  if (!selectors.chaptersLoading) return;
+  selectors.chaptersLoading.classList.toggle("is-active", Boolean(show));
+  selectors.chaptersLoading.setAttribute("aria-hidden", show ? "false" : "true");
 }
 
 function updateResponsiveNav() {

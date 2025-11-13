@@ -54,7 +54,7 @@
           </p>
           <div class="hero__embed is-active" data-role="spotify-embed" data-lang-visible="zh">
             <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/episode/2saLorh101T3xvHHZd4Ih2?utm_source=generator" width="100%" height="152" frameborder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-          </div>
+                </div>
           <div class="hero__cta">
             <a class="btn btn--primary" href="#chapters" data-slot="hero.primaryCta">探索章節</a>
             <a class="btn btn--ghost" href="#story" data-slot="hero.secondaryCta">閱讀緣起</a>
@@ -94,7 +94,10 @@
             上下篇共十二章，循序引導心氣調勻，建構人格與場域。
           </p>
         </header>
-        <div class="chapters__parts" data-slot="chapters.parts"></div>
+        <div class="chapters__parts" data-slot="chapters.parts" aria-live="polite"></div>
+        <div class="chapters__loading" data-role="chapters-loading" aria-hidden="true">
+          <span class="sr-only">內容載入中</span>
+                </div>
             </div>
         </section>
 
