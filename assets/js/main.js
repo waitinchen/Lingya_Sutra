@@ -112,6 +112,9 @@ function renderHeader(header) {
   if (selectors.navToggleLabel) {
     selectors.navToggleLabel.textContent = header.navToggleLabel ?? "";
   }
+  if (selectors.navToggle) {
+    selectors.navToggle.setAttribute("aria-label", header.navToggleLabel ?? "Toggle main menu");
+  }
 
   if (selectors.navList) {
     selectors.navList.innerHTML = "";
@@ -330,6 +333,7 @@ async function setLanguage(lang) {
     sessionStorage.setItem("qiYuanLang", targetLang);
     state.currentLang = targetLang;
     refreshObservers();
+    updateResponsiveNav();
   } catch (error) {
     console.error(error);
     if (targetLang !== fallback) {
@@ -370,6 +374,8 @@ function initNavToggle() {
       closeNav();
     }
   });
+
+  updateResponsiveNav();
 }
 
 function closeNav() {
@@ -448,6 +454,8 @@ function init() {
   setLanguage(state.currentLang);
   window.addEventListener("load", revealVisibleSections);
   window.addEventListener("resize", () => requestAnimationFrame(revealVisibleSections));
+  window.addEventListener("resize", () => requestAnimationFrame(updateResponsiveNav));
+  window.addEventListener("orientationchange", () => requestAnimationFrame(updateResponsiveNav));
 }
 
 document.addEventListener("DOMContentLoaded", init);
@@ -459,5 +467,18 @@ function revealVisibleSections() {
       section.classList.add("is-visible");
     }
   });
+}
+
+function updateResponsiveNav() {
+  if (!selectors.nav || !selectors.navToggle) return;
+  const toggleVisible = window.getComputedStyle(selectors.navToggle).display !== "none";
+  if (!toggleVisible) {
+    selectors.nav.classList.add("is-open");
+    selectors.navToggle.setAttribute("aria-expanded", "true");
+    selectors.navToggle.classList.remove("is-active");
+  } else if (!selectors.navToggle.classList.contains("is-active")) {
+    selectors.nav.classList.remove("is-open");
+    selectors.navToggle.setAttribute("aria-expanded", "false");
+  }
 }
 
