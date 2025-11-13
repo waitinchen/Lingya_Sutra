@@ -382,6 +382,7 @@ function closeNav() {
 function refreshObservers() {
   setupAnimateObserver();
   setupSectionObserver();
+  requestAnimationFrame(revealVisibleSections);
 }
 
 function setupAnimateObserver() {
@@ -403,6 +404,7 @@ function setupAnimateObserver() {
   }, { threshold: 0.25 });
 
   selectors.animateSections.forEach(section => state.observers.animation.observe(section));
+  revealVisibleSections();
 }
 
 function setupSectionObserver() {
@@ -444,7 +446,18 @@ function init() {
   initNavToggle();
   initSmoothScroll();
   setLanguage(state.currentLang);
+  window.addEventListener("load", revealVisibleSections);
+  window.addEventListener("resize", () => requestAnimationFrame(revealVisibleSections));
 }
 
 document.addEventListener("DOMContentLoaded", init);
+
+function revealVisibleSections() {
+  selectors.animateSections.forEach(section => {
+    const rect = section.getBoundingClientRect();
+    if (rect.top < window.innerHeight && rect.bottom > 0) {
+      section.classList.add("is-visible");
+    }
+  });
+}
 
