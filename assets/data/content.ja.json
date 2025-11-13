@@ -13,6 +13,7 @@
   },
   "header": {
     "brand": "啓元経",
+    "navToggleLabel": "メニューを開く",
     "nav": [
       { "label": "ビジョン", "target": "#hero" },
       { "label": "核心原則", "target": "#pillars" },

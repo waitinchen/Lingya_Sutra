@@ -20,6 +20,7 @@ const state = {
 const selectors = {
   brandMark: document.querySelector(".brand__mark"),
   brandName: document.querySelector('[data-slot="brandName"]'),
+  navToggleLabel: document.querySelector('[data-slot="navToggleLabel"]'),
   headerCta: document.querySelector('[data-slot="headerCta"]'),
   navList: document.querySelector('[data-slot="navList"]'),
   hero: {
@@ -108,6 +109,9 @@ function setMetaTag(selector, value, attr = "name") {
 function renderHeader(header) {
   if (!header) return;
   if (selectors.brandName) selectors.brandName.textContent = header.brand ?? "";
+  if (selectors.navToggleLabel) {
+    selectors.navToggleLabel.textContent = header.navToggleLabel ?? "";
+  }
 
   if (selectors.navList) {
     selectors.navList.innerHTML = "";
@@ -356,6 +360,7 @@ function initNavToggle() {
   selectors.navToggle.addEventListener("click", () => {
     const expanded = selectors.navToggle.getAttribute("aria-expanded") === "true";
     selectors.navToggle.setAttribute("aria-expanded", String(!expanded));
+    selectors.navToggle.classList.toggle("is-active", !expanded);
     selectors.nav.classList.toggle("is-open", !expanded);
   });
 
@@ -370,6 +375,7 @@ function initNavToggle() {
 function closeNav() {
   if (!selectors.navToggle || !selectors.nav) return;
   selectors.navToggle.setAttribute("aria-expanded", "false");
+  selectors.navToggle.classList.remove("is-active");
   selectors.nav.classList.remove("is-open");
 }
 

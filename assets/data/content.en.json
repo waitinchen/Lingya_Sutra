@@ -13,6 +13,7 @@
   },
   "header": {
     "brand": "Qi Yuan Jing",
+    "navToggleLabel": "Open main menu",
     "nav": [
       { "label": "Vision", "target": "#hero" },
       { "label": "Principles", "target": "#pillars" },

@@ -13,6 +13,7 @@
   },
   "header": {
     "brand": "啟元經",
+    "navToggleLabel": "開啟主選單",
     "nav": [
       { "label": "願景", "target": "#hero" },
       { "label": "核心原則", "target": "#pillars" },
