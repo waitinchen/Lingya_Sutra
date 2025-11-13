@@ -378,7 +378,8 @@ function initNavToggle() {
 
   document.addEventListener("click", event => {
     if (!selectors.nav.classList.contains("is-open")) return;
-    if (!selectors.nav.contains(event.target) && event.target !== selectors.navToggle) {
+    const isToggleClick = selectors.navToggle.contains(event.target);
+    if (!selectors.nav.contains(event.target) && !isToggleClick) {
       closeNav();
     }
   });

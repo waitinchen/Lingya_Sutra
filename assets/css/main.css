@@ -863,6 +863,7 @@ main {
     transform: translateY(-120%);
     transition: transform var(--transition-base), opacity var(--transition-base);
     opacity: 0;
+    z-index: 60;
   }
 
   .primary-nav.is-open {
