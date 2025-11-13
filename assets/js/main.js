@@ -61,7 +61,8 @@ const selectors = {
   langButtons: Array.from(document.querySelectorAll('.lang-switcher button')),
   navToggle: document.querySelector('[data-action="toggle-nav"]'),
   nav: document.querySelector('.primary-nav'),
-  animateSections: Array.from(document.querySelectorAll('[data-animate]'))
+  animateSections: Array.from(document.querySelectorAll('[data-animate]')),
+  spotifyEmbed: document.querySelector('[data-role="spotify-embed"]')
 };
 
 async function fetchContent(lang) {
@@ -329,6 +330,7 @@ async function setLanguage(lang) {
     renderCta(data.cta);
     renderFooter(data.footer);
     updateBrandMark(targetLang);
+    updateLocalizedEmbeds(targetLang);
     highlightLangButton(targetLang);
     sessionStorage.setItem("qiYuanLang", targetLang);
     state.currentLang = targetLang;
@@ -467,6 +469,17 @@ function revealVisibleSections() {
       section.classList.add("is-visible");
     }
   });
+}
+
+function updateLocalizedEmbeds(lang) {
+  if (!selectors.spotifyEmbed) return;
+  const visibleFor = (selectors.spotifyEmbed.dataset.langVisible || "all")
+    .split(",")
+    .map(value => value.trim())
+    .filter(Boolean);
+  const shouldShow = visibleFor.includes("all") || visibleFor.includes(lang);
+  selectors.spotifyEmbed.classList.toggle("is-active", shouldShow);
+  selectors.spotifyEmbed.setAttribute("aria-hidden", shouldShow ? "false" : "true");
 }
 
 function updateResponsiveNav() {

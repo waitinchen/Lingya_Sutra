@@ -448,6 +448,27 @@ main {
   letter-spacing: 0.08rem;
 }
 
+.hero__embed {
+  display: none;
+  margin-bottom: 2rem;
+  border-radius: 1rem;
+  border: 1px solid var(--color-border);
+  overflow: hidden;
+  box-shadow: var(--shadow-soft);
+  background: rgba(8, 12, 26, 0.75);
+}
+
+.hero__embed iframe {
+  display: block;
+  width: 100%;
+  border: 0;
+  min-height: 152px;
+}
+
+.hero__embed.is-active {
+  display: block;
+}
+
 .hero__cta {
   display: inline-flex;
   gap: 1.25rem;
