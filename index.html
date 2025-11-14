@@ -31,9 +31,15 @@
       </button>
       <nav id="primary-nav" class="primary-nav" aria-label="Main navigation">
         <ul class="primary-nav__list" data-slot="navList"></ul>
+        <div class="lang-switcher lang-switcher--mobile" role="group" aria-label="Language switcher">
+          <button type="button" class="is-active" data-lang="zh">中文</button>
+          <button type="button" data-lang="en">EN</button>
+          <button type="button" data-lang="ja">日本語</button>
+          <button type="button" data-lang="ko">한국어</button>
+        </div>
       </nav>
       <div class="site-header__actions">
-        <div class="lang-switcher" role="group" aria-label="Language switcher">
+        <div class="lang-switcher lang-switcher--desktop" role="group" aria-label="Language switcher">
           <button type="button" class="is-active" data-lang="zh">中文</button>
           <button type="button" data-lang="en">EN</button>
           <button type="button" data-lang="ja">日本語</button>
