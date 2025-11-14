@@ -115,7 +115,7 @@ function renderHeader(header) {
     selectors.navToggleLabel.textContent = header.navToggleLabel ?? "";
   }
   if (selectors.navToggle) {
-    selectors.navToggle.setAttribute("aria-label", header.navToggleLabel ?? "Toggle main menu");
+    selectors.navToggle.setAttribute("aria-label", header.navToggleLabel ?? "Switch language");
   }
 
   if (selectors.navList) {
