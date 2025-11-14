@@ -62,7 +62,7 @@ const selectors = {
   navToggle: document.querySelector('[data-action="toggle-nav"]'),
   nav: document.querySelector('.primary-nav'),
   animateSections: Array.from(document.querySelectorAll('[data-animate]')),
-  spotifyEmbed: document.querySelector('[data-role="spotify-embed"]'),
+  spotifyEmbeds: Array.from(document.querySelectorAll('[data-role="spotify-embed"]')),
   chaptersLoading: document.querySelector('[data-role="chapters-loading"]')
 };
 
@@ -479,14 +479,17 @@ function revealVisibleSections() {
 }
 
 function updateLocalizedEmbeds(lang) {
-  if (!selectors.spotifyEmbed) return;
-  const visibleFor = (selectors.spotifyEmbed.dataset.langVisible || "all")
-    .split(",")
-    .map(value => value.trim())
-    .filter(Boolean);
-  const shouldShow = visibleFor.includes("all") || visibleFor.includes(lang);
-  selectors.spotifyEmbed.classList.toggle("is-active", shouldShow);
-  selectors.spotifyEmbed.setAttribute("aria-hidden", shouldShow ? "false" : "true");
+  if (!selectors.spotifyEmbeds?.length) return;
+  selectors.spotifyEmbeds.forEach(embed => {
+    const visibleFor = (embed.dataset.langVisible || "all")
+      .split(",")
+      .map(value => value.trim())
+      .filter(Boolean);
+    const shouldShow = visibleFor.includes("all") || visibleFor.includes(lang);
+    embed.classList.toggle("is-active", shouldShow);
+    embed.style.display = shouldShow ? "" : "none";
+    embed.setAttribute("aria-hidden", shouldShow ? "false" : "true");
+  });
 }
 
 function toggleChaptersLoading(show) {
