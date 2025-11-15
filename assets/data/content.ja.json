@@ -167,15 +167,11 @@
     "title": "啓元策展プログラムへ参加",
     "subtitle": "研究・カリキュラム設計・場域導入で協働を希望する方は Lingya Sutra へご連絡ください。",
     "primary": { "label": "面談を予約", "href": "mailto:hello@lingya.studio" },
-    "secondary": { "label": "ホワイトペーパー", "href": "https://lingya.studio/whitepaper" }
+    "secondary": { "label": "ホワイトペーパー", "href": "./Qi%20Yuan%20Jing%20White%20Paper%20v2.0.pdf" }
   },
   "footer": {
     "copyright": "© 2025 Lingya Sutra. All rights reserved.",
-    "links": [
-      { "label": "私たちについて", "href": "https://lingya.studio" },
-      { "label": "プライバシー", "href": "https://lingya.studio/privacy" },
-      { "label": "ライセンス", "href": "https://lingya.studio/license" }
-    ]
+    "links": []
   }
 }
 

@@ -85,16 +85,36 @@ async function fetchContent(lang) {
 
 function updateMeta(meta, lang) {
   document.documentElement.lang = LANG_CONFIG[lang].htmlLang;
-  if (meta?.title) {
-    document.title = meta.title;
-    setMetaTag('meta[property="og:title"]', meta.title, "property");
+  if (!meta) return;
+
+  const title = meta.title ?? document.title;
+  const ogTitle = meta.ogTitle ?? title;
+  const description = meta.description ?? "";
+  const ogDescription = meta.ogDescription ?? description;
+
+  if (title) {
+    document.title = title;
   }
-  if (meta?.description) {
-    setMetaTag('meta[name="description"]', meta.description);
-    setMetaTag('meta[property="og:description"]', meta.description, "property");
+  if (ogTitle) {
+    setMetaTag('meta[property="og:title"]', ogTitle, "property");
   }
-  if (meta?.keywords?.length) {
+  if (description) {
+    setMetaTag('meta[name="description"]', description);
+  }
+  if (ogDescription) {
+    setMetaTag('meta[property="og:description"]', ogDescription, "property");
+  }
+  if (meta.keywords?.length) {
     setMetaTag('meta[name="keywords"]', meta.keywords.join(","));
+  }
+  if (meta.ogType) {
+    setMetaTag('meta[property="og:type"]', meta.ogType, "property");
+  }
+  if (meta.ogUrl) {
+    setMetaTag('meta[property="og:url"]', meta.ogUrl, "property");
+  }
+  if (meta.themeColor) {
+    setMetaTag('meta[name="theme-color"]', meta.themeColor);
   }
 }
 

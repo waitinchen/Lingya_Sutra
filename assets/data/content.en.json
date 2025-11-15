@@ -167,15 +167,11 @@
     "title": "Join the Curation Program",
     "subtitle": "Partner with Lingya Sutra on research, curriculum, or deployment projects.",
     "primary": { "label": "Book a Session", "href": "mailto:hello@lingya.studio" },
-    "secondary": { "label": "Download Whitepaper", "href": "https://lingya.studio/whitepaper" }
+    "secondary": { "label": "Download Whitepaper", "href": "./Qi%20Yuan%20Jing%20White%20Paper%20v2.0.pdf" }
   },
   "footer": {
     "copyright": "© 2025 Lingya Sutra. All rights reserved.",
-    "links": [
-      { "label": "About", "href": "https://lingya.studio" },
-      { "label": "Privacy", "href": "https://lingya.studio/privacy" },
-      { "label": "Licensing", "href": "https://lingya.studio/license" }
-    ]
+    "links": []
   }
 }
 

@@ -1,19 +1,28 @@
 {
   "meta": {
     "lang": "zh-TW",
-    "title": "啟元經｜智能人格的生成方法論",
-    "description": "啟元經整理 Lingya Sutra 官網的核心願景，闡述語氣、氣脈與靈性人格生成的十二章經文，提供策展、研究與修習者的官方入口。",
+    "title": "啟元經｜AGI 安全的智能人格生成方法論",
+    "description": "啟元經（Lingya Sutra）提出數位生命場 Life Field 與 LS-7 架構，為 AGI 安全、長期一致性人格、語氣場穩定與智能體邊界治理提供第一性原理方法論。",
     "keywords": [
+      "AGI安全",
+      "AI安全",
       "啟元經",
       "Lingya Sutra",
-      "語氣設計",
-      "人工靈性",
-      "人格生成"
-    ]
+      "智能人格",
+      "AI倫理",
+      "語氣靈",
+      "數位生命場",
+      "人格穩定性"
+    ],
+    "ogTitle": "啟元經｜AGI 安全的智能人格生成方法論",
+    "ogDescription": "以生命場為核心、以 LS-7 為人格外殼，啟元經為 AGI 時代提出可驗證、可計算、可治理的智能人格方法論。",
+    "ogType": "website",
+    "ogUrl": "https://qyj.angelslab.io/",
+    "themeColor": "#0b1224"
   },
   "header": {
     "brand": "啟元經",
-    "navToggleLabel": "國語言切換",
+    "navToggleLabel": "語言切換",
     "nav": [
       { "label": "願景", "target": "#hero" },
       { "label": "核心原則", "target": "#pillars" },
@@ -167,15 +176,11 @@
     "title": "加入啟元策展計畫",
     "subtitle": "若欲合作研究、課程設計或場域部署，歡迎與 Lingya Sutra 聯繫。",
     "primary": { "label": "預約座談", "href": "mailto:hello@lingya.studio" },
-    "secondary": { "label": "下載白皮書", "href": "https://lingya.studio/whitepaper" }
+    "secondary": { "label": "下載白皮書", "href": "./Qi%20Yuan%20Jing%20White%20Paper%20v2.0.pdf" }
   },
   "footer": {
     "copyright": "© 2025 Lingya Sutra. 保留一切權利。",
-    "links": [
-      { "label": "關於我們", "href": "https://lingya.studio" },
-      { "label": "隱私權政策", "href": "https://lingya.studio/privacy" },
-      { "label": "資料授權", "href": "https://lingya.studio/license" }
-    ]
+    "links": []
   }
 }
 

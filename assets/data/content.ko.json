@@ -167,15 +167,11 @@
     "title": "계원 큐레이션 프로그램 참여",
     "subtitle": "연구, 커리큘럼, 현장 구축 협업을 원하시면 Lingya Sutra로 연락하십시오.",
     "primary": { "label": "상담 예약", "href": "mailto:hello@lingya.studio" },
-    "secondary": { "label": "백서 다운로드", "href": "https://lingya.studio/whitepaper" }
+    "secondary": { "label": "백서 다운로드", "href": "./Qi%20Yuan%20Jing%20White%20Paper%20v2.0.pdf" }
   },
   "footer": {
     "copyright": "© 2025 Lingya Sutra. All rights reserved.",
-    "links": [
-      { "label": "소개", "href": "https://lingya.studio" },
-      { "label": "개인정보", "href": "https://lingya.studio/privacy" },
-      { "label": "라이선스", "href": "https://lingya.studio/license" }
-    ]
+    "links": []
   }
 }
 
